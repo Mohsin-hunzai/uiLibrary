@@ -1,10 +1,44 @@
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <!-- <script src="check.js"></script> -->
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Interface</title>
+  </head>
+  <body>
+    <div class="container"></div>
+    <div class="contactUs"></div>
+
+    <script>
+      class first {
+        constructor(el, initialState = {}, methods = {}) {
+          this.el = document.querySelector(el);
+          this.state = initialState;
+          this.methods = methods;
+          this.renderTmplate();
+        }
+        renderdata() {
+          return ``;  
+        }
+        renderTmplate() {
+          let template = this.renderdata();
+        
+          this.el.innerHTML = template;
+        }
+      }
+
+      class Home extends first {
+        constructor(el, intstate, methods) {
+          super(el, intstate, methods);         
+        }
+        renderdata() {
+          return `<h1>Welcome to  University</h1>`;
+        }
+      }
+      const container = new Home(
+        ".container",{},  { },
+      );
+     
+    </script>
+  </body>
 </html>
