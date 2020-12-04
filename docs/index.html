@@ -22,7 +22,13 @@
         }
         renderTmplate() {
           let template = this.renderdata();
-        
+          Object.keys(this.state).forEach((variable) => {
+            const newvalue = this.state[variable];
+            template = template.replace(
+              new RegExp(`{{${variable}}}`, "g"),
+              newvalue
+            );
+          });
           this.el.innerHTML = template;
         }
       }
@@ -32,11 +38,16 @@
           super(el, intstate, methods);         
         }
         renderdata() {
-          return `<h1>Welcome to  University</h1>`;
+          return `<h1>Welcome to  University {{date}}</h1>`;
         }
       }
       const container = new Home(
-        ".container",{},  { },
+        ".container",
+        {
+          uni:"karakurom",
+          date: "12/12/2020",
+        },  
+        { },
       );
      
     </script>
